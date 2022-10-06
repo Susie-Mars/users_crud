@@ -10,14 +10,14 @@
     
 </head>
 <body>
-    <form action="/user/{{user.id}}/edit" method="post">
+    <form action="/user/{{user.id}}/update" method="post" class="d-flex flex-column w-50 p-3">
         <label for="first">First Name</label>
         <input type="text" name="first" id="first" value="{{user.first_name}}">
         <label for="last">Last Name</label>
         <input type="text" name="last" id="last" value="{{user.last_name}}">
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" value="{{user.email_name}}">
-        <button type="submit">Update User</button>
+        <input type="text" name="email" id="email" value="{{user.email}}">
+        <button type="submit" method="post" class="btn btn-dark mt-3">Update User</button>
 
 
 

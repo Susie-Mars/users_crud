@@ -14,10 +14,14 @@ def get_one(id):
     user = User.get_one(data)
     return render_template("show.html", user=user)
 
-@app.route('/user/new', methods=["POST"])
-def add_user():
+@app.route('/user/create', methods=["POST"])
+def create_user():
     User.create(request.form)
     return redirect('/user')
+
+@app.route('/user/new')
+def new_user_table():
+    return render_template("add_user.html")
 
 @app.route('/user/<int:id>/edit')
 def edit_user(id):
@@ -25,17 +29,17 @@ def edit_user(id):
     user = User.get_one(data)
     return render_template("edit_user.html", user=user)
 
+@app.route('/user/<int:id>/update', methods=["POST"])
+def update(id):
+    data = {'id': id, 'first_name': request.form['first'], 'last_name': request.form['last'], 'email':request.form['email']}
+    User.edit_user(data)
+    return redirect('/user')
+
 @app.route('/user/<int:id>/delete')
 def del_user(id):
     data = {'id': id}
-    User.delete(data)
-    return redirect('/user')
-
-# @app.route('/user/<int:id>/show')
-# def show_user(id):
-#     print("Showing the User Info From the Form")
-#     print(request.form)
-#     return render_template("show.html")
+    User.del_user(data)
+    return redirect('/')
 
 
 @app.errorhandler(404)

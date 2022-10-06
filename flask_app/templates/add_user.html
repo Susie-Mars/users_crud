@@ -11,16 +11,21 @@
 
 
 <body>
-    <h1>All Users</h1>
+    <h1 class="p-3">All Users</h1>
     <div>
-        <form action="/user/new" method="post"></form>
+        <form action="/user/create" method="post"  class="d-flex flex-column w-50 p-3 justify-content-center">
             <label for="first_name">First Name</label>
             <input type="text" name="first_name" id="first_name">
             <label for="last_name">Last Name</label>
             <input type="text" name="last_name" id="last_name">
             <label for="email">Email</label>
             <input type="text" name="email" id="email">
-            <input type="submit" value="Add user">
+            
+            
+            
+            <input type="submit" value="Add user"
+            class="btn btn-dark mt-3">
+    </form>
     </div>
     
 </body>
